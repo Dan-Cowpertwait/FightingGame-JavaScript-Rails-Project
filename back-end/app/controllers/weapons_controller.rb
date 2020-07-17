@@ -1,2 +1,34 @@
 class WeaponsController < ApplicationController
+
+    def index
+        @weapons = Weapon.all
+        render json: @weapons
+      end
+    
+      def show
+        @weapon = Weapon.find(params[:id])
+        render json: @weapon
+      end
+    
+      def create
+        @weapon = Weapon.create(weapon_params)
+        render json: @weapon
+      end
+    
+      def update
+        @weapon = Weapon.find(params[:id])
+        @weapon.update(weapon_params)
+        if @weapon.save
+          render json: @weapon
+        else
+          render json: {errors: @weapon.errors.full_messages}, status: 422
+        end
+      end
+    
+      private
+    
+      def weapon_params
+        params.require(:weapon).permit(:name, :power, :defence, :character_id)
+      end
+
 end

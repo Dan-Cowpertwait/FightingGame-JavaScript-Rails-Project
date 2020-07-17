@@ -14,7 +14,7 @@ class Game{
         e.preventDefault()
         const value = //form values by class
 
-        this.adapter.createCharacter(name, class, health, defence).then(characterdata => {
+        this.adapter.createCharacter(name, rpgclass, health, defence).then(characterdata => {
             this.playerCharacter.push(new Character(characterdata))
             //call remove elements function
             //open weapon creation

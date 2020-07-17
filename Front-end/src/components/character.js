@@ -1,7 +1,7 @@
 class Character {
     constructor(characterJson) {
         this.name = characterJson.name
-        this.class = characterJson.class
+        this.rpgclass = characterJson.rpgclass
         this.health = characterJson.health
         this.defence = characterJson.defence
     }
@@ -11,8 +11,8 @@ class Character {
     }
 
     
-    playerClass() {
-        return this.class
+    playerRpgclass() {
+        return this.rpgclass
     }
 
     

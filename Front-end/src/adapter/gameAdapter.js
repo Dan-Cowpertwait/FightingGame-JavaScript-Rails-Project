@@ -13,10 +13,10 @@ class GameAdapter {
         return fetch(`${this.characterURL}/${id}/weapons`).then(response => response.json())
     }
 
-    createCharacter(name, class, health, defence) {
+    createCharacter(name, rpgclass, health, defence) {
         const character = {
             name: name,
-            class: class,
+            rpgclass: rpgclass,
             health: health,
             defence: defence,
         }
