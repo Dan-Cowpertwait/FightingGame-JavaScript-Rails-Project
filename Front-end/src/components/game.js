@@ -4,6 +4,8 @@ class Game{
         this.adapter = new GameAdapter()
         //load menu dom elements
         //fetch enemies?
+        
+
     }
 
 
