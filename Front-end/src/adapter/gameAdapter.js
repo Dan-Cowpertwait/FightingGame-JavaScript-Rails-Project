@@ -4,6 +4,7 @@ class GameAdapter {
         this.weaponURL = 'http://localhost:3000/weapons'
     }
 
+//GET FETCHES
 
     getCharacters() {
         return fetch(this.characterURL).then(response => response.json())
@@ -13,6 +14,9 @@ class GameAdapter {
         return fetch(`${this.characterURL}/${id}/weapons`).then(response => response.json())
     }
 
+
+//CREATE CHARACTER FETCH
+    
     createCharacter(name, rpgclass, health, defence) {
         const character = {
             name: name,
@@ -30,6 +34,8 @@ class GameAdapter {
         }).then(res => res.json())
     }
 
+
+//LEVEL UP FETCH
     updateCharacterLevel(value, id) {
         const character = {
             value: health
@@ -44,6 +50,7 @@ class GameAdapter {
         }).then(res => res.json())
     }
 
+//CREATE WEAPON FETCH
     createWeapon(name, type, power, defence, id) {
         const weapon = {
             name: name,

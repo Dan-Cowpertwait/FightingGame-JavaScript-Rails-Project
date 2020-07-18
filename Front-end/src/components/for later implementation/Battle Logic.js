@@ -1,3 +1,13 @@
+<!-- <h3>Opponents Health <span id="opponent-health"></span></h3>
+<h3>Player Health <span id="player-health"></span></h3>
+
+<button id="attack-button" onclick="attack()">Hit em!</button>
+<h3 id="damage-message"></h3>
+<h3 id="turn-message"></h3>
+<h3 id="game-message"></h3> -->
+
+
+
 let player = {
     health: 100,
     power: 20
