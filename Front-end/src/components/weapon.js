@@ -4,6 +4,8 @@ class Weapon {
         this.class = weaponJson.type
         this.health = weaponJson.power
         this.defence = weaponJson.defence
+        this.id = weaponJson.id
+        this.characterId = weaponJson.character_id
     }
 
     weaponName() {

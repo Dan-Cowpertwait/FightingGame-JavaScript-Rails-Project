@@ -4,19 +4,10 @@ class GameAdapter {
         this.weaponURL = 'http://localhost:3000/weapons'
     }
 
-//GET FETCHES
-
     getCharacters() {
         return fetch(this.characterURL).then(response => response.json())
     }
 
-    getCharacterWeapons() {
-        return fetch(`${this.characterURL}/${id}/weapons`).then(response => response.json())
-    }
-
-
-//CREATE CHARACTER FETCH
-    
     createCharacter(name, rpgclass, health, defence) {
         const character = {
             name: name,
@@ -24,29 +15,13 @@ class GameAdapter {
             health: health,
             defence: defence,
         }
-
+    
         return fetch(this.characterURL, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
             body: JSON.stringify({ character }),
-        }).then(res => res.json())
-    }
-
-
-//LEVEL UP FETCH
-    updateCharacterLevel(value, id) {
-        const character = {
-            value: health
-        }
-
-        return fetch(`${this.characterURL}/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({character}),
         }).then(res => res.json())
     }
 
@@ -66,10 +41,7 @@ class GameAdapter {
             },
             body: JSON.stringify({ weapon }),
         }).then(res => res.json())
-    }    
+    }  
 
-
-
-
-
+    
 }
