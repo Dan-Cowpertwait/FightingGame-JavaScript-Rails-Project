@@ -1,7 +1,7 @@
 class Weapon {
     constructor(weaponJson) {
         this.name = weaponJson.name
-        this.class = weaponJson.type
+        this.design = weaponJson.design
         this.health = weaponJson.power
         this.defence = weaponJson.defence
         this.id = weaponJson.id

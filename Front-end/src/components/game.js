@@ -81,7 +81,7 @@ class Game {
 
         let submitWeapon = document.createElement('input')
         submitWeapon.id = 'weapon-submit-button'
-        submitWeapon.setAttribute("type", "to battle!");
+        submitWeapon.setAttribute("type", "submit");
         weaponForm.appendChild(submitWeapon)
 
         //todo - create icons as submit buttons to represent each class, pass event listener functions
@@ -122,12 +122,14 @@ class Game {
         this.adapter.createCharacter(name, rpgclass, health, defence)
         .then(player =>{
             this.playerCharacter.push(new Character(player))
-            // this.clearPage
+            console.log(this.playerCharacter)
+            this.clearPage()
+            this.renderNewWeaponForm()
         })
     }
 
 
-    Weapon CRUD
+   // Weapon CRUD
 
     sendWeaponData(e){
         e.preventDefault();
@@ -138,15 +140,15 @@ class Game {
         let defence = (type === 'Sword') ? 5 : ((type === 'Quarterstaff') ? 15 : ((type === 'Battle Axe') ? 0 : 10))
         let playerId = this.playerCharacter.map(player => {return player.id})
         confirm(`A ${type}. . . are you sure?`)
-        console.log(name, type, power, defence, playerId)
+        this.newWeapon(name, type, power, defence, playerId)
     }
 
-    newWeapon(name, rpgclass, health, defence) {
-        this.adapter.createCharacter(name, rpgclass, health, defence)
-        .then(player =>{
-            this.playerCharacter.push(new Character(player))
-            console.log(this.playerCharacter)
-            this.clearPage
+    newWeapon(name, rpgclass, health, defence, playerId) {
+        this.adapter.createWeapon(name, rpgclass, health, defence, playerId)
+        .then(weapon =>{
+            this.playerWeapon.push(new Weapon(weapon))
+            console.log(this.playerWeapon)
+            // this.clearPage
         })
     }
 
@@ -155,6 +157,8 @@ class Game {
     clearPage(){
         this.gameContainer.innerHTML = "";
     }
+
+    
 
 
     

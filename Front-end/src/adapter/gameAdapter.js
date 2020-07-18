@@ -26,12 +26,13 @@ class GameAdapter {
     }
 
 //CREATE WEAPON FETCH
-    createWeapon(name, type, power, defence, id) {
+    createWeapon(name, type, power, defence, playerId) {
         const weapon = {
             name: name,
             type: type,
             power: power,
             defence: defence,
+            character_id: playerId,
         }
 
         return fetch(this.weaponURL, {

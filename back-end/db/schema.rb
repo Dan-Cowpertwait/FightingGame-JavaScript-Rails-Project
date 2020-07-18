@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_060250) do
 
   create_table "weapons", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "design"
     t.integer "power"
     t.integer "defence"
     t.integer "character_id", null: false
