@@ -8,10 +8,9 @@
 
 
 #BAD GUYS defence used as damage(power)
-Character.create(name: "Mr Bones", rpgclass: "Skeleton", health: 50, defence: 5, id: 1)
-Character.create(name: "Void", rpgclass: "Rogue", health: 75, defence: 10, id: 2)
-Character.create(name: "Grognak", rpgclass: "Barbarian", health: 125, defence: 20, id: 3)
-Character.create(name: "Boss Hog", rpgclass: "Henchpig", health: 200, defence: 30, id: 5)
-Character.create(name: "Necrodancer", rpgclass: "Groove Mage", health: 150, defence: 25, id: 4)
-
+Character.create(name: "Mr Bones", rpgclass: "Skeleton", health: 15, defence: 10, id: 1)
+Character.create(name: "Void", rpgclass: "Rogue", health: 20, defence: 15, id: 2)
+Character.create(name: "Grognak", rpgclass: "Barbarian", health: 25, defence: 20, id: 3)
+Character.create(name: "Necrodancer", rpgclass: "Groove Mage", health: 30, defence: 25, id: 4)
+Character.create(name: "Boss Hog", rpgclass: "Henchpig", health: 40, defence: 30, id: 5)
 
