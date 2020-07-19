@@ -7,6 +7,7 @@ class Game {
         this.adapter = new GameAdapter()
         this.getBaddies()
         this.renderNewPlayerForm()
+        this.currentEnemy = 0
         //load menu dom elements
         //fetch enemies?
 
@@ -14,18 +15,17 @@ class Game {
 
 //Start Game
     startGame(){
-        this.clearPage
+        this.clearPage()
         // set player constants and variables
         const player = this.playerCharacter[0]
         const weapon = this.playerWeapon[0] // create button for each item?
-        let currentEnemy = 0
         let totalHealth = player.health
         let playerDefence = player.defence + weapon.defence;
         
         //set enemy const and variables
-        const enemy = this.baddies[currentEnemy] // increment by 1 with each level
+        const enemy = this.baddies[`${this.currentEnemy}`] // increment by 1 with each level
         let enemyHealth = enemy.health
-
+        
 
         //Battle Div
         let battleDiv = document.createElement('div');
@@ -36,36 +36,42 @@ class Game {
         let battleTitle = document.createElement('H2')
         battleTitle.innerText = `${player.name} vs ${enemy.name}`
         //starting Health Bars
-        let displayPlayerHealth = document.createElement('H3')
-        let displayEnemyHealth = document.createElement('H3')
-        displayPlayerHealth.innerText = `Health - ${totalHealth}. / Defence - ${playerDefence}.`
-        displayEnemyHealth.innerText = `Opponent Health - ${enemyHealth}`
+        this.displayPlayerHealth = document.createElement('H3')
+        this.displayEnemyHealth = document.createElement('H3')
+        this.displayPlayerDefence = document.createElement('H3')
+        this.displayPlayerHealth.innerText = `Health - ${totalHealth}.`
+        this.displayPlayerDefence.innerText = `Defence - ${playerDefence}.`
+        this.displayEnemyHealth.innerText = `Opponent Health - ${enemyHealth}`
+
+        //turn element
 
         //Buttons
-        let playerAttackButton = document.createElement('button')
-        playerAttackButton.id = ('player-attack')
-        playerAttackButton.innerHTML = "Attack!"
+        this.playerAttackButton = document.createElement('button')
+        this.playerAttackButton.id = ('player-attack')
+        this.playerAttackButton.innerHTML = "Attack!"
 
-        let playerDefendButton = document.createElement('button')
-        playerDefendButton.id = ('player-defend')
-        playerDefendButton.innerHTML = "Defend!"
+        this.playerDefendButton = document.createElement('button')
+        this.playerDefendButton.id = ('player-defend')
+        this.playerDefendButton.innerHTML = "Defend!"
 
-        console.log(`player health = ${totalHealth}`)
-        console.log(`player defence = ${playerDefence}`)
-        console.log(`enemy = ${enemy}`)
-        console.log(`weapon = ${weapon}`)
-        console.log(`player health test = ${displayPlayerHealth}`)
+        // console.log(`player health = ${totalHealth}`)
+        // console.log(`player defence = ${playerDefence}`)
+        // console.log(`player = ${enemyHealth}`)
+        // console.log(`weapon = ${weapon}`)
+        // console.log(`player health test = ${this.displayPlayerHealth.innerText}`)
 
         //append all to Div
-        // this.battleDiv.appendChild(displayPlayerHealth);
-        // this.battleDiv.appendChild(displayEnemyHealth);
-        // this.battleDiv.appendChild(playerAttackButton);
-        // this.battleDiv.appendChild(playerDefendButton);
-        // this.battleDiv.appendChild(battleTitle);
+        battleDiv.appendChild(battleTitle);
+        battleDiv.appendChild(this.displayPlayerHealth);
+        battleDiv.appendChild(this.displayPlayerDefence);
+        battleDiv.appendChild(this.displayEnemyHealth);
+        battleDiv.appendChild(this.playerAttackButton);
+        battleDiv.appendChild(this.playerDefendButton);
+        
 
         // //Event listeners
-        // playerAttackButton.addEventListener('click', event => this.attack(event, weapon))
-        // playerDefendButton.addEventListener('click', event => this.defend(event))
+        this.playerAttackButton.addEventListener('click', event => this.attack(event, weapon, enemy, enemyHealth, totalHealth))
+        this.playerDefendButton.addEventListener('click', event => this.defend(event, playerDefence, enemy, enemyHealth, totalHealth))
         //set addlistener function for button as attack
 
         //set addlistener function for button as defence
@@ -74,13 +80,85 @@ class Game {
 
     }
 
-    attack(event, weapon) {
+    attack(event, weapon, enemy, enemyHealth, totalHealth) {
         event.preventDefault();
-        console.log(`weapon power = ${weapon.power}`)
-        // let attackPower = determineAttack(weapon.power)
-        // return attackPower
+
+        console.log(`enemy health = ${enemyHealth}, your health = ${totalHealth}`)
+        // console.log(`weapon power = ${weapon.power}`)
+        let playerAttack = this.determineAttack(weapon.power)
+        let currentEnemyHealth = enemyHealth
+        let currentPlayerHealth = totalHealth
+
+        console.log(`enemy health = ${currentPlayerHealth}, your health = ${totalHealth}`)
+
+        //attack logic
+        currentEnemyHealth -= playerAttack
+        alert(`you did ${playerAttack} damage!`);
+        this.printHealthBarsOnAttack(currentPlayerHealth, currentEnemyHealth)
+
+
+        this.playerAttackButton.disabled = true;
+        this.playerDefendButton.disabled = true;
+
+
+        setTimeout(() => {
+            let opponentAttack = this.determineAttack(enemy.defence)
+            alert(`you took ${opponentAttack} damage!`);
+            this.printHealthBarsOnAttack(currentPlayerHealth, currentEnemyHealth)
+
+            if (this.isGameOver(currentPlayerHealth)){
+                this.clearPage()
+                alert(`Your champion... has fallen`)
+            }
+        this.playerAttackButton.disabled = false;
+        this.playerDefendButton.disabled = false;
+        },1000)
     }
 
+    defend(event, defence, enemy, enemyHealth, totalHealth) {
+        event.preventDefault();
+
+        // console.log(`enemy health = ${enemyHealth}, your health = ${totalHealth}`)
+        // console.log(`weapon power = ${weapon.power}`)
+        let playerAttack = this.determineAttack(weapon.power)
+        let currentEnemyHealth = enemyHealth
+        let currentPlayerHealth = totalHealth
+
+        console.log(`enemy health = ${currentPlayerHealth}, your health = ${totalHealth}`)
+
+        //attack logic
+        currentEnemyHealth -= playerAttack
+        alert(`you did ${playerAttack} damage!`);
+        this.printHealthBarsOnAttack(currentPlayerHealth, currentEnemyHealth)
+
+
+        this.playerAttackButton.disabled = true;
+        this.playerDefendButton.disabled = true;
+
+
+        setTimeout(() => {
+            let opponentAttack = this.determineAttack(enemy.defence)
+            alert(`you took ${opponentAttack} damage!`);
+            this.printHealthBarsOnAttack(currentPlayerHealth, currentEnemyHealth)
+
+            if (this.isGameOver(currentPlayerHealth)){
+                this.clearPage()
+                alert(`Your champion... has fallen`)
+            }
+        this.playerAttackButton.disabled = false;
+        this.playerDefendButton.disabled = false;
+        },1000)
+    }
+
+    isGameOver = (health) => {
+        return health <= 0;
+        //returns boolean! (interesting...)
+    }
+
+    isDefenceBroken = (defence) => {
+        return defence <= 0;
+        //returns boolean! (interesting...)
+    }
 
 
 
@@ -239,9 +317,14 @@ class Game {
         //returns boolean! (interesting...)
     }
 
-    printHealthBars() {
-        displayPlayerHealth.innerHTML = `Health - ${player.health}. / Defence - ${player.defence}.`
-        displayEnemyHealth.innerHTML = `Opponent Health - ${enemy.health}`
+    printHealthBarsOnAttack(playerHealth, enemyHealth) {
+        this.displayPlayerHealth.innerHTML = `Health - ${playerHealth}.`
+        this.displayEnemyHealth.innerHTML = `Opponent Health - ${enemyHealth}`
+    }
+
+    printHealthBarsonDefend(playerDefence, enemyHealth) {
+        this.displayPlayerDefence.innerHTML = `Defence - ${playerDefence}.`
+        this.displayEnemyHealth.innerHTML = `Opponent Health - ${enemyHealth}`
     }
 
 
