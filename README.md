@@ -2,7 +2,7 @@ Javascript Project with Rails - FlatIron School
 
 Welcome to my little fighting game, written in a Ruby on Rails back-end and a JS front end!
 
-![Image](../blob/screenshot.png?raw=true)
+![Image](./blob/master/screenshot.png?raw=true)
 
 https://github.com/Dan-Cowpertwait/FightingGame-JavaScript-Rails-Project
 
