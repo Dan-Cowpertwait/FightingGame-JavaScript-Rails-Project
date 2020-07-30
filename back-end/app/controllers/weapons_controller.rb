@@ -1,7 +1,11 @@
 class WeaponsController < ApplicationController
 
     def index
+      if params[:character_id]
+        @weapons = Character.find(params[:character_id]).weapons
+      else 
         @weapons = Weapon.all
+      end
         render json: @weapons
       end
     

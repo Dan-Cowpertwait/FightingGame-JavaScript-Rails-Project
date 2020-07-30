@@ -1,24 +1,12 @@
-# README
+Welcome to my little fighting game, written in a Ruby on Rails back-end and a JS front end.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To start the application, open the back-end folder (make sure you have ruby on rails installed!) and run 'rails s -p 3001' to start the server
 
-Things you may want to cover:
+Once the server is running, open your file explorer and navigate to the Front-End folder.
 
-* Ruby version
+Inside you'll find the index.html file, double click and create your character!
 
-* System dependencies
+Good luck in your battles!
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Credits : FlatIron school, OcO for his amazing animated sprites.
