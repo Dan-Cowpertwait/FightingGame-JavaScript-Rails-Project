@@ -8,23 +8,5 @@ class Weapon {
         this.characterId = weaponJson.character_id
     }
 
-    weaponName() {
-        return this.name
-    }
-
-    
-    weaponType() {
-        return this.type
-    }
-
-    
-    weaponPower() {
-        return this.power
-    }
-
-    
-    weaponDefence() {
-        return this.defence
-    }
 
 }

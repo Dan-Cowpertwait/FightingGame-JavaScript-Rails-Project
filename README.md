@@ -1,4 +1,11 @@
-Welcome to my little fighting game, written in a Ruby on Rails back-end and a JS front end.
+Javascript Project with Rails - FlatIron School
+
+Welcome to my little fighting game, written in a Ruby on Rails back-end and a JS front end!
+
+![alt text](https://github.com/Dan-Cowpertwait/FightingGame-JavaScript-Rails-Project/blob/master/screenshot.png?raw=true)
+
+https://github.com/Dan-Cowpertwait/FightingGame-JavaScript-Rails-Project
+
 
 To start the application, open the back-end folder (make sure you have ruby on rails installed!) and run 'rails s' to start the server
 

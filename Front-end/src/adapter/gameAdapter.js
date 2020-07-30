@@ -25,7 +25,14 @@ class GameAdapter {
         }).then(res => res.json())
     }
 
-//CREATE WEAPON FETCH
+
+
+
+    getCharacterWeapons(id) {
+        return fetch(`${this.characterURL}/${id}/weapons`).then(response => response.json())
+    }
+
+
     createWeapon(name, design, power, defence, playerId) {
         const weapon = {
             name: name,

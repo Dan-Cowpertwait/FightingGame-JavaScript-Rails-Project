@@ -1,0 +1,392 @@
+input[type=text], select {
+    font-family: 'Cinzel';
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    font-family: 'Cinzel';
+    font-weight: bold;
+    width: 100%;
+    background-color: wheat;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:disabled {
+    font-family: 'Cinzel';
+    font-weight: bold;
+    width: 100%;
+    background-color: gray;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+body{
+    height: 500px;
+    color: beige;
+    text-shadow: 4px 4px 4px black;
+    font-family: 'Cinzel';
+    background-image: url('../assets/background.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+hr{
+   border: none; 
+   height: 100px;
+}
+
+.title-text{
+    color: beige;
+    align-content: center;
+    text-shadow: 4px 4px 4px black;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+
+.formflex {
+    width: 500px;
+    align-content: center;
+
+}
+
+
+.battle-box {
+    display: flex;
+    justify-content: space-around;
+
+}
+.battle-button {
+    font-family: 'Cinzel';
+    font-weight: bold;
+    font-size: large;
+    width: 100%;
+    background-color: wheat;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.playerinfo{
+    width: 500px;
+    margin: 10px;
+    border: 3px solid #333;
+    background-color: wheat;
+}
+
+
+:root {
+    --pixel-size: 3;
+ }
+
+
+.pixelart {
+   image-rendering: pixelated;
+}
+
+@keyframes moveSpritesheet {
+   from {
+      transform: translate3d(0px,0,0)
+   }
+   to {
+      transform: translate3d(-100%,0,0)
+   }
+}
+
+
+/* WIZARD ANIMATIONS */
+
+ .CharacterWizardIdle {
+    width: calc(128px * var(--pixel-size));
+    height: calc(128px * var(--pixel-size));
+    overflow: hidden;
+    position: relative;
+    margin: 4em auto;
+    /* background-color: hotpink; */
+ }
+ 
+ .CharacterWizardIdleSpritesheet {
+    animation: moveSpritesheet 1s steps(18) infinite;
+    width: calc(2304px * var(--pixel-size));
+    position: absolute;
+    
+ }
+
+
+ .CharacterWizardAttack {
+   width: calc(128px * var(--pixel-size));
+   height: calc(128px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterWizardAttackSpritesheet {
+   animation: moveSpritesheet 1s steps(30) infinite;
+   width: calc(3840px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+/* WARRIOR ANIMATIONS */
+ 
+.CharacterWarriorIdle {
+   width: calc(128px * var(--pixel-size));
+   height: calc(128px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterWarriorIdlespritesheet {
+   animation: moveSpritesheet 1s steps(16) infinite;
+   width: calc(2720px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+.CharacterWarriorAttack {
+   width: calc(128px * var(--pixel-size));
+   height: calc(128px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterWarriorAttackspritesheet {
+   animation: moveSpritesheet 1s steps(30) infinite;
+   width: calc(5100px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+/* ROGUE ANIMATIONS */
+ 
+.CharacterRogueIdle {
+   width: calc(128px * var(--pixel-size));
+   height: calc(128px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterRogueIdlespritesheet {
+   animation: moveSpritesheet 1s steps(8) infinite;
+   width: calc(1024px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+.CharacterRogueAttack {
+   width: calc(128px * var(--pixel-size));
+   height: calc(128px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterRogueAttackspritesheet {
+   animation: moveSpritesheet 1s steps(28) infinite;
+   width: calc(3584px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+/* Bad Guys */
+
+/* Goblin ANIMATIONS */
+ 
+.CharacterGoblinIdle {
+   width: calc(150px * var(--pixel-size));
+   height: calc(150px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterGoblinIdlespritesheet {
+   animation: moveSpritesheet 1s steps(4) infinite;
+   width: calc(600px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+.CharacterGoblinAttack {
+   width: calc(150px * var(--pixel-size));
+   height: calc(150px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterGoblinAttackspritesheet {
+   animation: moveSpritesheet 1s steps(8) infinite;
+   width: calc(1200px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+/* Mushroom ANIMATIONS */
+ 
+.CharacterMushroomIdle {
+   width: calc(150px * var(--pixel-size));
+   height: calc(150px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterMushroomIdlespritesheet {
+   animation: moveSpritesheet 1s steps(4) infinite;
+   width: calc(600px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+.CharacterMushroomAttack {
+   width: calc(150px * var(--pixel-size));
+   height: calc(150px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterMushroomAttackspritesheet {
+   animation: moveSpritesheet 1s steps(8) infinite;
+   width: calc(1200px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+/* Beholder ANIMATIONS */
+ 
+.CharacterBeholderIdle {
+   width: calc(150px * var(--pixel-size));
+   height: calc(150px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterBeholderIdlespritesheet {
+   animation: moveSpritesheet 1s steps(8) infinite;
+   width: calc(1200px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+.CharacterBeholderAttack {
+   width: calc(150px * var(--pixel-size));
+   height: calc(150px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterBeholderAttackspritesheet {
+   animation: moveSpritesheet 1s steps(8) infinite;
+   width: calc(1200px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+/* Skeleton ANIMATIONS */
+ 
+.CharacterSkeletonIdle {
+   width: calc(150px * var(--pixel-size));
+   height: calc(150px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterSkeletonIdlespritesheet {
+   animation: moveSpritesheet 1s steps(4) infinite;
+   width: calc(600px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+.CharacterSkeletonAttack {
+   width: calc(150px * var(--pixel-size));
+   height: calc(150px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterSkeletonAttackspritesheet {
+   animation: moveSpritesheet 1s steps(8) infinite;
+   width: calc(1200px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+/* Skeleton ANIMATIONS */
+ 
+.CharacterDemonIdle {
+   width: calc(160px * var(--pixel-size));
+   height: calc(144px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 4em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterDemonIdlespritesheet {
+   animation: moveSpritesheet 1s steps(6) infinite;
+   width: calc(960px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+.CharacterDemonAttack {
+   width: calc(240px * var(--pixel-size));
+   height: calc(192px * var(--pixel-size));
+   overflow: hidden;
+   position: relative;
+   margin: 2em auto;
+   /* background-color: hotpink; */
+}
+
+.CharacterDemonAttackspritesheet {
+   animation: moveSpritesheet 1s steps(11) infinite;
+   width: calc(2640px * var(--pixel-size));
+   position: absolute;
+   
+}

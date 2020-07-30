@@ -7,23 +7,5 @@ class Character {
         this.id = characterJson.id
     }
 
-    playerName() {
-        return this.name
-    }
-
-    
-    playerRpgclass() {
-        return this.rpgclass
-    }
-
-    
-    playerHealth() {
-        return this.health
-    }
-
-    
-    playerDefence() {
-        return this.defence
-    }
 
 }
